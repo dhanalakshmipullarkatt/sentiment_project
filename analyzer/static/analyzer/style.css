@@ -1,0 +1,236 @@
+/* analyzer/static/analyzer/style.css */
+
+:root {
+    --bg-surface: #1e2230;
+    --card-surface: #252a3e;
+    --border-neon: #00f0ff;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    
+    /* Neon Status Variations */
+    --pos-text: #4ade80;
+    --pos-bg: rgba(74, 222, 128, 0.1);
+    --pos-border: #4ade80;
+    
+    --neg-text: #f87171;
+    --neg-bg: rgba(248, 113, 113, 0.1);
+    --neg-border: #f87171;
+    
+    --neu-text: #38bdf8;
+    --neu-bg: rgba(56, 189, 248, 0.1);
+    --neu-border: #38bdf8;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-surface);
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 4rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* Sci-Fi Dashboard Modules */
+.premium-panel {
+    background-color: var(--card-surface);
+    border: 1px solid #333b56;
+    border-top: 3px solid var(--border-neon);
+    border-radius: 8px;
+    padding: 2.25rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    margin: 0 0 0.35rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+p.subtitle {
+    margin: 0 0 1.75rem 0;
+    font-size: 0.875rem;
+    color: var(--border-neon);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 0.9rem;
+    background-color: #181b28;
+    border: 1px solid #3c4565;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.975rem;
+    font-family: inherit;
+    resize: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--border-neon);
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.15);
+    background-color: #1a1e2d;
+}
+
+button {
+    width: 100%;
+    background-color: var(--border-neon);
+    color: #0f121d;
+    border: none;
+    border-radius: 6px;
+    padding: 0.9rem;
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+button:hover {
+    background-color: #00cbd6;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Neon Data Analysis Cards */
+.output-card {
+    margin-top: 1.75rem;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    display: none;
+    animation: HUDReveal 0.2s ease-out;
+}
+
+@keyframes HUDReveal {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.status-Positive { background-color: var(--pos-bg); color: var(--pos-text); border: 1px solid var(--pos-border); }
+.status-Negative { background-color: var(--neg-bg); color: var(--neg-text); border: 1px solid var(--neg-border); }
+.status-Neutral { background-color: var(--neu-bg); color: var(--neu-text); border: 1px solid var(--neu-border); }
+
+/* Table Sheet Infrastructure */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #333b56;
+    padding-bottom: 0.75rem;
+}
+
+.history-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.clear-btn {
+    background-color: transparent;
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: auto;
+    transition: all 0.15s ease;
+}
+
+.clear-btn:hover {
+    background-color: rgba(248, 113, 113, 0.1);
+    border-color: #f87171;
+}
+
+.table-scroller {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th {
+    text-align: left;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 2px solid #333b56;
+}
+
+td {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #2d334a;
+    color: var(--text-secondary);
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tr:hover td {
+    background-color: #2b3147;
+    color: #ffffff;
+}
+
+/* History Row Status Badges */
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.bg-Positive { background-color: var(--pos-bg); color: var(--pos-text); border-color: var(--pos-border); }
+.bg-Negative { background-color: var(--neg-bg); color: var(--neg-text); border-color: var(--neg-border); }
+.bg-Neutral { background-color: var(--neu-bg); color: var(--neu-text); border-color: var(--neu-border); }
+
+.no-data {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2.5rem 0;
+    font-style: italic;
+    background-color: transparent !important;
+}

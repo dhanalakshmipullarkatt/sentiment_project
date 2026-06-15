@@ -1,0 +1,54 @@
+<!-- analyzer/templates/analyzer/index.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Dashboard</title>
+    <!-- Modularized Design Pipeline -->
+    <link rel="stylesheet" href="{% static 'analyzer/style.css' %}">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <!-- Analytical Control Console Module -->
+    <div class="premium-panel">
+        <h2>Sentiment Analyzer</h2>
+        <p class="subtitle">Enter a textual statement to run language classification checks.</p>
+        
+        {% csrf_token %}
+        
+        <textarea id="sentence-input" placeholder="Enter a sentence to begin analysis..."></textarea>
+        <button id="submit-action-btn">Analyze Entry</button>
+        
+        <div id="output-display" class="output-card"></div>
+    </div>
+
+    <!-- Analytics Log Registry Sheet -->
+    <div class="premium-panel" style="padding: 1.5rem 2rem;">
+        <div class="history-header">
+            <h3>Recent Searches</h3>
+            <button id="clear-history-btn" class="clear-btn">Clear Logs</button>
+        </div>
+        <div class="table-scroller">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Statement Input String</th>
+                        <th>Classification</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                    <!-- Dynamic Elements Handled Separately via JS Module Asset -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Decoupled Interactive Logic Script Binding Link -->
+<script src="{% static 'analyzer/app.js' %}"></script>
+
+</body>
+</html>
